@@ -9,6 +9,6 @@ class Job extends Model
 {
     use HasFactory;
 
-    public static array $experience = ['entry', 'intermediate', 'senior'];
-    public static array $category = ['IT', 'Finance', 'Sales', 'Marketing',];
+    public static array $experience = ['Junior', 'Middle', 'Senior'];
+    public static array $category = ['IT', 'Maliyyə', 'Satış', 'Marketinq',];
 }
