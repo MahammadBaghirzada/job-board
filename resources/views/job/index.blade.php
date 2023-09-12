@@ -2,22 +2,22 @@
     <x-breadcrumbs class="mb-4"
                    :links="['İşlər' => route('jobs.index')]" />
 
-    <x-card class="mb-4 text-sm">
-        <form id="filtering-form" action="{{ route('jobs.index') }}" method="GET">
+    <x-card class="mb-4 text-sm" x-data="">
+        <form x-ref="filters" id="filtering-form" action="{{ route('jobs.index') }}" method="GET">
             <div class="mb-4 grid grid-cols-2 gap-4">
                 <div>
                     <div class="mb-1 font-semibold">Axtar</div>
                     <x-text-input name="search" value="{{ request('search') }}"
-                                  placeholder="Sayt üzrə axtarış" form-id="filtering-form" />
+                                  placeholder="Sayt üzrə axtarış" form-ref="filters" />
                 </div>
                 <div>
                     <div class="mb-1 font-semibold">Maaş</div>
 
                     <div class="flex space-x-2">
                         <x-text-input name="min_salary" value="{{ request('min_salary') }}"
-                                      placeholder="Min" form-id="filtering-form" />
+                                      placeholder="Min" form-ref="filters" />
                         <x-text-input name="max_salary" value="{{ request('max_salary') }}"
-                                      placeholder="Maks" form-id="filtering-form" />
+                                      placeholder="Maks" form-ref="filters" />
                     </div>
                 </div>
                 <div>
