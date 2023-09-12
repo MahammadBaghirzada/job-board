@@ -34,7 +34,7 @@
                 </div>
             </div>
 
-            <button class="w-full">Tətbiq et</button>
+            <x-button class="w-full">Tətbiq et</x-button>
         </form>
     </x-card>
 
