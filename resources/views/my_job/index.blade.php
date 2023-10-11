@@ -25,6 +25,10 @@
                 @empty
                     <div>Müraciət yoxdur</div>
                 @endforelse
+
+                <div class="flex space-x-2">
+                    <x-link-button href="{{ route('my-jobs.edit', $job) }}">Redaktə Et</x-link-button>
+                </div>
             </div>
         </x-job-card>
     @empty
