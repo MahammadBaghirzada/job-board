@@ -41,7 +41,7 @@
                                    :options="\App\Models\Job::$category" />
                 </div>
 
-                <div class="col-span-12">
+                <div class="col-span-2">
                     <x-button class="w-full">Yadda saxla</x-button>
                 </div>
             </div>
