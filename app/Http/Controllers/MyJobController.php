@@ -10,6 +10,7 @@ class MyJobController extends Controller
 {
     public function index()
     {
+        $this->authorize('viewAnyEmployer', Job::class);
         return view('my_job.index',
             [
             'jobs' => auth()->user()->employer
@@ -22,25 +23,29 @@ class MyJobController extends Controller
 
     public function create()
     {
+        $this->authorize('create', Job::class);
         return view('my_job.create');
     }
 
     public function store(JobRequest $request)
     {
+        $this->authorize('create', Job::class);
         auth()->user()->employer->jobs()->create($request->validated());
 
         return redirect()->route('my-jobs.index')
             ->with('success', 'İş uğurla əlavə olundu');
     }
 
-    public function edit(Job $myjob)
+    public function edit(Job $myJob)
     {
-        return view('my_job.edit', ['job' => $myjob]);
+        $this->authorize('update', $myJob);
+        return view('my_job.edit', ['job' => $myJob]);
     }
 
-    public function update(JobRequest $request, Job $myjob)
+    public function update(JobRequest $request, Job $myJob)
     {
-        $myjob->update($request->validated());
+        $this->authorize('update', $myJob);
+        $myJob->update($request->validated());
 
         return redirect()->route('my-jobs.index')
             ->with('success', 'İş uğurla yeniləndi');
