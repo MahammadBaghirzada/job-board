@@ -11,9 +11,15 @@
                 Müraciət edin
             </x-link-button>
         @else
-            <div class="text-center text-sm font-medium text-slate-500">
-                Siz artıq bu işə müraciət etmisiniz
-            </div>
+            @auth
+                <div class="text-center text-sm font-medium text-slate-500">
+                    Siz artıq bu işə müraciət etmisiniz
+                </div>
+            @else
+                <div class="text-center text-sm font-medium text-slate-500">
+                    Müraciət üçün <a class="text-indigo-500 hover:underline" href="{{ route('login') }}">daxil olun</a>
+                </div>
+            @endauth
         @endcan
     </x-job-card>
 
