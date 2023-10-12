@@ -51,8 +51,11 @@ class MyJobController extends Controller
             ->with('success', 'İş uğurla yeniləndi');
     }
 
-    public function destroy(string $id)
+    public function destroy(Job $myJob)
     {
-        //
+        $myJob->delete();
+
+        return redirect()->route('my-jobs.index')
+            ->with('success', 'İş silindi');
     }
 }
